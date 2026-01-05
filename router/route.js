@@ -8,5 +8,6 @@ router.post('/api/register',userController.userRegister)
 router.post('/api/login',userController.userLogin)
 router.post('/api/googlelogin',userController.googleUserLogin)
 router.post('/api/addbook',jwtMiddleware,multerConfig.array('UploadedImages',3),bookController.addBook)
+router.get('/api/getbooks', jwtMiddleware,bookController.getBooks);
 
 module.exports=router

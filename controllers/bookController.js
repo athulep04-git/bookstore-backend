@@ -29,3 +29,13 @@ exports.addBook=async(req,res)=>{
 }   
     // res.send("Request Recieved") 
 }
+
+
+exports.getBooks = async(req, res) => {
+  try {
+    const allBooks = await books.find();
+    res.status(200).json(allBooks);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
