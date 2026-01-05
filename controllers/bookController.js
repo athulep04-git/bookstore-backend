@@ -30,7 +30,7 @@ exports.addBook=async(req,res)=>{
     // res.send("Request Recieved") 
 }
 
-
+//get all books
 exports.getBooks = async(req, res) => {
   try {
     const allBooks = await books.find();
@@ -39,3 +39,14 @@ exports.getBooks = async(req, res) => {
     res.status(500).json(error);
   }
 };
+
+//get latest 4 books
+exports.latestbooks= async(req,res)=>{
+    try {
+    const latestBooks = await books.find().sort({ createdAt: -1 }).limit(4);
+    res.status(200).json(latestBooks);
+  } catch (error) {
+    res.status(500).json(error);
+  } 
+};
+
