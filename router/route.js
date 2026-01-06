@@ -11,5 +11,4 @@ router.post('/api/addbook',jwtMiddleware,multerConfig.array('UploadedImages',3),
 router.get('/api/getbooks', jwtMiddleware,bookController.getBooks);
 router.get('/api/latestbooks', bookController.latestbooks);
 
-
 module.exports=router

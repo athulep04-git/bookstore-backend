@@ -43,7 +43,7 @@ exports.getBooks = async(req, res) => {
 //get latest 4 books
 exports.latestbooks= async(req,res)=>{
     try {
-    const latestBooks = await books.find().sort({ createdAt: -1 }).limit(4);
+    const latestBooks = await books.find().sort({_id: -1 }).limit(4);
     res.status(200).json(latestBooks);
   } catch (error) {
     res.status(500).json(error);
