@@ -1,3 +1,4 @@
+const { response } = require("express");
 const books = require("../models/bookModel")
 
 exports.addBook=async(req,res)=>{
@@ -50,3 +51,7 @@ exports.latestbooks= async(req,res)=>{
   } 
 };
 
+exports.viewbook=async(req,res)=>{
+  console.log(req.params);
+  res.send("Request recieved")
+}
