@@ -10,5 +10,5 @@ router.post('/api/googlelogin',userController.googleUserLogin)
 router.post('/api/addbook',jwtMiddleware,multerConfig.array('UploadedImages',3),bookController.addBook)
 router.get('/api/getbooks', jwtMiddleware,bookController.getBooks);
 router.get('/api/latestbooks', bookController.latestbooks);
-router.get('/api/viewbook/:id', bookController.viewbook);
+router.get('/api/viewbook/:id', jwtMiddleware,bookController.viewbook);
 module.exports=router

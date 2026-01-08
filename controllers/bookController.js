@@ -53,5 +53,17 @@ exports.latestbooks= async(req,res)=>{
 
 exports.viewbook=async(req,res)=>{
   console.log(req.params);
-  res.send("Request recieved")
+  const {id}=req.params
+  try{
+      const bookdata=await books.findOne({_id:id})
+      if(!bookdata){
+        res.status(401).json("book not found")
+      }
+      else
+        res.status(200).json({message:"book found",bookdata})    
+        }
+  catch(error){
+    res.status(500).json(error);
+  }
+  
 }
