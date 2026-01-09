@@ -1,0 +1,10 @@
+const users =require('../models/userModel')
+
+exports.getUsers = async(req, res) => {
+  try {
+    const allUsers = await users.find({role:{$ne:'admin'}});
+    res.status(200).json({messsage:"users found",allUsers});
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};

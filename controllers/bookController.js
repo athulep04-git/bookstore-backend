@@ -51,6 +51,7 @@ exports.latestbooks= async(req,res)=>{
   } 
 };
 
+//view details of a single selected book
 exports.viewbook=async(req,res)=>{
   console.log(req.params);
   const {id}=req.params
