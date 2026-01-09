@@ -4,6 +4,7 @@ const bookController=require('../controllers/bookController')
 
 const adminController=require('../controllers/adminController')
 
+const adminMiddleware=require('../middleware/adminMiddleware')
 const jwtMiddleware = require('../middleware/jwtMiddleware')
 const multerConfig = require('../middleware/multerMiddleware')
 const router=express.Router()
@@ -15,5 +16,5 @@ router.get('/api/getbooks', jwtMiddleware,bookController.getBooks);
 router.get('/api/latestbooks', bookController.latestbooks);
 router.get('/api/viewbook/:id', jwtMiddleware,bookController.viewbook);
 
-router.get('/api/getusers',adminController.getUsers);
+router.get('/api/getusers',adminMiddleware,adminController.getUsers);
 module.exports=router

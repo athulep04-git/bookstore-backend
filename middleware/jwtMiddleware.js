@@ -6,7 +6,7 @@ const jwtMiddleware=(req,res,next)=>{
         const token =req.headers.authorization.slice(7)
         const jwtVerification=jwt.verify(token,process.env.jwtkey)
         console.log(jwtVerification); //{userMail: 'athul123@gmail.com',role: 'BookStore User',iat: 1766403641}
-        req.payload=jwtVerification.userMail
+        req.payload=jwtVerification.userMail     
     }
     catch(err){
        res.status(402).json("Authorization Error"+err) 
