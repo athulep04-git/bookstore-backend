@@ -8,3 +8,12 @@ exports.getUsers = async(req, res) => {
     res.status(500).json(error);
   }
 };
+
+exports.getbooks = async(req, res) => {
+  try {
+    const allbooks= await users.find({role:{$ne:'Admin'}});
+    res.status(200).json({messsage:"books found",allbooks});
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
