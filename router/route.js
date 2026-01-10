@@ -17,5 +17,5 @@ router.get('/api/latestbooks', bookController.latestbooks);
 router.get('/api/viewbook/:id', jwtMiddleware,bookController.viewbook);
 
 router.get('/api/getusers',adminMiddleware,adminController.getUsers);
-router.get('/api/getbooks',adminMiddleware,adminController.getbooks);
+router.get('/api/getbooksad',adminMiddleware,adminController.getbooks);
 module.exports=router
