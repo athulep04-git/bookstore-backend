@@ -6,7 +6,8 @@ const adminMiddleware=(req,res,next)=>{
             const token =req.headers.authorization.slice(7)
             const jwtVerification=jwt.verify(token,process.env.jwtkey)
             console.log(jwtVerification);
-            req.payload=jwtVerification.role
+            req.payload=jwtVerification.userMail
+            req.role=jwtVerification.role
             if(jwtVerification.role=="Admin")
         {
             next();

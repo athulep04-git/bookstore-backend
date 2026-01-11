@@ -19,3 +19,23 @@ exports.getbooks = async(req, res) => {
     res.status(500).json(error);
   }
 };
+
+exports.updateAdmin=async(req,res)=>{
+  console.log("inside admin controller");
+  //get body
+  const {username,password,bio,profile}=req.body
+  //get email:payload
+  const email=req.payload
+  //get role
+  const role=req.role
+  //update profile photo:req.file
+  const uploadedProfile=req.file?req.file.filename:profile
+  try{
+    const updateAdmin=await users.findOneAndUpdate({email},{username,email,password,profile:uploadedProfile,bio,role},{new:true})
+    await updateAdmin.save()
+    res.status(200).json({messsage:"Updated successfully...",updateAdmin})
+    } catch (error) {
+    res.status(500).json("error"+error);
+  }
+  
+}

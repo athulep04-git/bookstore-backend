@@ -18,4 +18,8 @@ router.get('/api/viewbook/:id', jwtMiddleware,bookController.viewbook);
 
 router.get('/api/getusers',adminMiddleware,adminController.getUsers);
 router.get('/api/getbooksad',adminMiddleware,adminController.getbooks);
+
+router.put('/api/update-admin',adminMiddleware,multerConfig.single('profile'),adminController.updateAdmin)
+
+
 module.exports=router
