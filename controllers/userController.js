@@ -74,3 +74,21 @@ exports.googleUserLogin=async(req,res)=>{
 }
 
 }
+
+exports.updateUser=async(req,res)=>{
+  console.log("inside User controller");
+  //get body
+  const {username,password,bio,profile}=req.body
+  //get email:payload
+  const email=req.payload
+  //update profile photo:req.file
+  const uploadedProfile=req.file?req.file.filename:profile
+  try{
+    const updateUser=await User.findOneAndUpdate({email},{username,email,password,profile:uploadedProfile,bio},{new:true})
+    await updateUser.save()
+    res.status(200).json({message:"Updated successfully...",updateUser})
+    } catch (error) {
+    res.status(500).json("error"+error);
+  }
+  
+}

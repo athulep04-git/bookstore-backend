@@ -33,7 +33,7 @@ exports.updateAdmin=async(req,res)=>{
   try{
     const updateAdmin=await users.findOneAndUpdate({email},{username,email,password,profile:uploadedProfile,bio,role},{new:true})
     await updateAdmin.save()
-    res.status(200).json({messsage:"Updated successfully...",updateAdmin})
+    res.status(200).json({message:"Updated successfully...",updateAdmin})
     } catch (error) {
     res.status(500).json("error"+error);
   }
