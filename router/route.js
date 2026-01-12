@@ -20,6 +20,6 @@ router.get('/api/getusers',adminMiddleware,adminController.getUsers);
 router.get('/api/getbooksad',adminMiddleware,adminController.getbooks);
 
 router.put('/api/update-admin',adminMiddleware,multerConfig.single('profile'),adminController.updateAdmin)
-
+router.get('/api/getadmindetails',adminMiddleware,adminController.updateAdminLogin);
 
 module.exports=router

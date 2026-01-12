@@ -39,3 +39,13 @@ exports.updateAdmin=async(req,res)=>{
   }
   
 }
+
+//update admin login
+exports.updateAdminLogin = async(req, res) => {
+  try {
+    const admin = await users.findOne({role:{$eq:'Admin'}});
+    res.status(200).json({messsage:"admin found",admin});
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
