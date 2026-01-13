@@ -23,5 +23,6 @@ router.put('/api/update-admin',adminMiddleware,multerConfig.single('profile'),ad
 router.get('/api/getadmindetails',adminMiddleware,adminController.updateAdminLogin);
 
 router.put('/api/update-user',jwtMiddleware,multerConfig.single('profile'),userController.updateUser)
+router.get('/api/getuserdetails',jwtMiddleware,userController.updateUserLogin);
 
 module.exports=router
