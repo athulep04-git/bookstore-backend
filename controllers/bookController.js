@@ -1,6 +1,7 @@
 const books = require("../models/bookModel")
 // import Stripe from 'stripe';
 // const stripe = new Stripe(process.env.paymentkey);
+//123
 const stripe = require('stripe')(process.env.paymentkey);
 exports.addBook=async(req,res)=>{
     console.log("inside add book");
