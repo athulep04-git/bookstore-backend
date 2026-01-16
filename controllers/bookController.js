@@ -138,8 +138,8 @@ exports.buyBook=async(req,res)=>{
     ];
   const session = await stripe.checkout.sessions.create({
   payment_method_types:['card'],
-  success_url: 'http://localhost:5173/payment-success',
-  cancel_url:'http://localhost:5173/payment-error',
+  success_url: 'https://bookstore-backend-1-lfsh.onrender.com/payment-success',
+  cancel_url:'https://bookstore-backend-1-lfsh.onrender.com/payment-error',
   line_items,
   mode: 'payment',
 });
