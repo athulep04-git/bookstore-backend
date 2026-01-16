@@ -25,4 +25,5 @@ router.get('/api/getadmindetails',adminMiddleware,adminController.updateAdminLog
 router.put('/api/update-user',jwtMiddleware,multerConfig.single('profile'),userController.updateUser)
 router.get('/api/getuserdetails',jwtMiddleware,userController.updateUserLogin);
 
+router.put('/api/makepayment',jwtMiddleware,bookController.buyBook);
 module.exports=router
